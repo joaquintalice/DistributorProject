@@ -7,7 +7,7 @@
         public int Brand { get; set; }
         public int Model { get; set; }
         public int ClientId { get; set; }
-        public List<Reparto> Reparto { get; set; }
+        public Reparto Reparto { get; set; }
         public Employee Employee { get; set; }
     }
 }

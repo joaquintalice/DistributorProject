@@ -5,6 +5,6 @@
         public string Name { get; set; }
         public string Location { get; set; }
         public List<Client> Clients { get; set; }
-        public List<Truck> Trucks { get; set; }
+        public List<Truck> Trucks { get; set; } = null!;
     }
 }
