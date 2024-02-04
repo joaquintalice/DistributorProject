@@ -8,7 +8,21 @@ namespace Distributor.Infraestructure.Data.Config
     {
         public void Configure(EntityTypeBuilder<OrderDetail> builder)
         {
-            throw new NotImplementedException();
+            builder
+                .HasKey(x => x.Id);
+
+            builder.Property(x => x.Quantity).IsRequired();
+            builder.Property(x => x.UnitPrice).IsRequired();
+
+            builder
+                .HasOne(od => od.Order)
+                .WithMany(o => o.OrderDetail)
+                .HasForeignKey(o => o.OrderId);
+
+            builder
+                .HasOne(od => od.Product)
+                .WithMany(p => p.OrderDetail)
+                .HasForeignKey(o => o.ProductId);
         }
     }
 }

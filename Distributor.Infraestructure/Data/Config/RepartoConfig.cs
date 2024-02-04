@@ -8,7 +8,21 @@ namespace Distributor.Infraestructure.Data.Config
     {
         public void Configure(EntityTypeBuilder<Reparto> builder)
         {
-            throw new NotImplementedException();
+            builder
+                .HasKey(r => r.Id);
+
+            builder.Property(r => r.Name).HasMaxLength(30);
+            builder.Property(r => r.Location).HasMaxLength(50);
+
+            builder
+                .HasMany(r => r.Trucks)
+                .WithOne(t => t.Reparto)
+                .HasForeignKey(t => t.Id);
+
+            builder
+                .HasMany(r => r.Clients)
+                .WithOne(cl => cl.Reparto)
+                .HasForeignKey(cl => cl.Id);
         }
     }
 }

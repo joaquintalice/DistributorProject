@@ -8,7 +8,11 @@ namespace Distributor.Infraestructure.Data.Config
     {
         public void Configure(EntityTypeBuilder<Order> builder)
         {
-            builder.HasKey(o => o.Id);
+            builder
+                .HasKey(o => o.Id);
+
+            builder.Property(o => o.OrderDate).IsRequired();
+
 
             builder
                 .HasOne(o => o.Client)
