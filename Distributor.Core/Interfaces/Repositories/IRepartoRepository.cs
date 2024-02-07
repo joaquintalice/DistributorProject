@@ -3,9 +3,9 @@
     public interface IRepartoRepository
     {
         Task<Reparto> GetRepartoByIdAsync(int repartoId);
-        Task<IReadOnlyList<Reparto>> GetRepartosAsync();
+        Task<List<Reparto>> GetRepartosAsync();
         Task<Reparto> CreateRepartoAsync(Reparto reparto);
-        Task<Reparto> UpdateRepartoAsync(Reparto reparto);
+        Task<Reparto> UpdateRepartoAsync(int id);
         Task<Reparto> DeleteRepartoAsync(int id);
     }
 }
